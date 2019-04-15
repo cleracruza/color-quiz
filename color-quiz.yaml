@@ -1,0 +1,99 @@
+product-id: 923
+comment: Color Quiz
+init: $mode:=0 $color:=0 $colors:=12 $random := 4711
+media-path: sounds/%s
+welcome: welcome game0
+scripts:
+  STOP: P(STOP)
+
+  background: P(STOP)
+
+  game0: $mode:=0 P(game0)
+  game1: P(game1) J(initMode1)
+
+  updateRandom: T($randomAdd, 65535) $random += $randomAdd $random *= 25173 $random += 13849 J(updateRandomContinue)
+  updateRandomContinue: $updateRandomContinueLastState:=$updateRandomContinueState $updateRandomContinueState:=0 J(updateRandomContinue2)
+  updateRandomContinue2:
+    - $updateRandomContinueLastState == 1? J(initMode1part2)
+    - J(STOP)
+
+  initMode1: J(initMode1part1)
+  initMode1part1: $updateRandomContinueState := 1 J(updateRandom)
+  initMode1part2: $expectedColor := $random $expectedColor %= $colors J(initMode1part3)
+  initMode1part3: P(scanColor) $color := $expectedColor J(sayColor) $mode:=1
+
+  initMode2: J(initMode2part1)
+  initMode2part1: T($randomAdd, 65535) $random += $randomAdd $random *= 25173 $random += 13849 J(initMode2part2)
+  initMode2part2: $expectedColor := $random $expectedColor %= $colors P(game1) $color := $expectedColor $sayColorContinueState := 1 J(sayColor)
+
+  color00: $color:=0  J(scannedColor)
+  color01: $color:=1  J(scannedColor)
+  color02: $color:=2  J(scannedColor)
+  color03: $color:=3  J(scannedColor)
+  color04: $color:=4  J(scannedColor)
+  color05: $color:=5  J(scannedColor)
+  color06: $color:=6  J(scannedColor)
+  color07: $color:=7  J(scannedColor)
+  color08: $color:=8  J(scannedColor)
+  color09: $color:=9  J(scannedColor)
+  color10: $color:=10 J(scannedColor)
+  color11: $color:=11 J(scannedColor)
+
+  scannedColor:
+    - $mode == 0? J(sayColor)
+    - $mode == 1? J(scannedColorMode1)
+
+  scannedColorMode1:
+    - $color == $expectedColor? J(scannedColorMode1Match)
+    - $color != $expectedColor? J(scannedColorMode1Mismatch)
+
+  scannedColorMode1Match: J(scannedColorMode1MatchPart1)
+  scannedColorMode1MatchPart1: P(good00, good01, good02, good03) J(initMode1)
+
+  scannedColorMode1Mismatch: J(scannedColorMode1MismatchPart1)
+  scannedColorMode1MismatchPart1: P(bad00, bad01, bad02, bad03) $sayColorContinueState := 1 P(thisWas) J(sayColor)
+  scannedColorMode1MismatchPart2: $color:=$expectedColor P(butImSearchingFor) J(sayColor)
+
+  sayColor:
+    - $color ==  0? P(color00Lang0) J(sayColorContinue)
+    - $color ==  1? P(color01Lang0) J(sayColorContinue)
+    - $color ==  2? P(color02Lang0) J(sayColorContinue)
+    - $color ==  3? P(color03Lang0) J(sayColorContinue)
+    - $color ==  4? P(color04Lang0) J(sayColorContinue)
+    - $color ==  5? P(color05Lang0) J(sayColorContinue)
+    - $color ==  6? P(color06Lang0) J(sayColorContinue)
+    - $color ==  7? P(color07Lang0) J(sayColorContinue)
+    - $color ==  8? P(color08Lang0) J(sayColorContinue)
+    - $color ==  9? P(color09Lang0) J(sayColorContinue)
+    - $color == 10? P(color10Lang0) J(sayColorContinue)
+    - $color == 11? P(color11Lang0) J(sayColorContinue)
+
+  sayColorContinue:
+    - $sayColorContinueState == 1? $sayColorContinueState := 0 J(scannedColorMode1MismatchPart2)
+    - J(STOP)
+
+
+scriptcodes:
+  STOP: 10000
+
+  background: 10010
+
+  game0: 10020
+  game1: 10021
+
+  color00: 10100
+  color01: 10101
+  color02: 10102
+  color03: 10103
+  color04: 10104
+  color05: 10105
+  color06: 10106
+  color07: 10107
+  color08: 10108
+  color09: 10109
+  color10: 10110
+  color11: 10111
+  color12: 10112
+
+  sayColor:     10200
+  scannedColor: 10201

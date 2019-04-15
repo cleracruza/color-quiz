@@ -9,8 +9,20 @@
 # use different codes for your scripts, and you might have to re-
 # create the images for your product.
 scriptcodes:
-  kreis: 8633
-  hintergrund: 8632
-  ttbox_demo: 8636
-  rechteck: 8634
-  STOP: 8635
+  scannedColorMode1Match: 6747
+  scannedColorMode1: 6736
+  updateRandom: 6743
+  initMode2part1: 6741
+  initMode2: 6740
+  initMode2part2: 6742
+  initMode1part3: 6739
+  sayColorContinue: 6745
+  scannedColorMode1MatchPart1: 6760
+  scannedColorMode1MismatchPart1: 6749
+  initMode1part2: 6738
+  initMode1: 6735
+  scannedColorMode1Mismatch: 6748
+  updateRandomContinue: 6744
+  scannedColorMode1MismatchPart2: 6750
+  initMode1part1: 6737
+  updateRandomContinue2: 6746
