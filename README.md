@@ -1,11 +1,11 @@
-# ttbox-demo
+# Color quiz
 
-Demo project for [ttbox](https://github.com/cleracruza/ttbox)'s SVG OID placement
+Simple TipToi quiz to learn basic colors
 
 * [Installation](#installation)
 * [Questions/Support](#questionssupport)
 
-[![Build Status](https://travis-ci.org/cleracruza/ttbox-demo.svg?branch=master)](https://travis-ci.org/cleracruza/ttbox-demo)
+[![Build Status](https://travis-ci.org/cleracruza/color-quiz.svg?branch=master)](https://travis-ci.org/cleracruza/color-quiz)
 
 ## Installation
 
@@ -13,14 +13,14 @@ Demo project for [ttbox](https://github.com/cleracruza/ttbox)'s SVG OID placemen
 * Install the requirements for [`ttbox`](https://github.com/cleracruza/ttbox)
 * Clone this repository and make sure to init the submodules:
 ```
-git clone --recursive https://github.com/cleracruza/ttbox-demo.git
+git clone --recursive https://github.com/cleracruza/color-quiz.git
 ```
-* Switch to the cloned directory `cd ttbox-demo`
-* Run `make` to build `demo.gme` and `demo-with-oids.svg`.
-* Copy `demo.gme` to your TipToi pen.
-* Print `demo-with-oids.svg` on a 1200dpi printer.
-* Your TipToi pen should now be able to play the sounds for the geometric shapes to the printout.
+* Switch to the cloned directory `cd color-quiz`
+* Run `make` to build `color-quiz.gme` and `color-quiz-with-oids.svg`.
+* Copy `color-quiz.gme` to your TipToi pen.
+* Print `color-quiz-with-oids.svg` on a 1200dpi printer.
+* Your TipToi pen should now be able to play the color quiz.
 
 ## Questions/Support
 
-If you run into issues or have questions, please file a ticket at [GitHub's issue tracker](https://github.com/cleracruza/ttbox-demo/issues/new)
+If you run into issues or have questions, please file a ticket at [GitHub's issue tracker](https://github.com/cleracruza/color-quiz/issues/new)
